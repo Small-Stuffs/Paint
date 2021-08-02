@@ -1,7 +1,17 @@
 const canvas = document.querySelector('#canvas')
+const ctx = canvas.getContext('2d')
+
+canvas.width = 500;
+canvas.height = 500;
+
+ctx.strokeStyle = 'black'
+ctx.lineWidth = '2.5'
 
 let painting = false
 
+function startPainting() {
+  painting = true
+}
 function stopPainting() {
   painting = false
 }
@@ -9,7 +19,15 @@ function onMouseMove(e) {
 
   const x = e.offsetX 
   const y = e.offsetY
-  console.log(x ,y)
+  
+  if(!painting) {
+    ctx.beginPath() 
+    ctx.moveTo(x, y)
+  }
+  else {
+    ctx.lineTo(x, y)
+    ctx.stroke()
+  }
 }
 function onMouseDown(e) {
   painting = true
@@ -22,7 +40,7 @@ function onMouseUp(e) {
 
 if(canvas) {
   canvas.addEventListener('mousemove', onMouseMove)
-  canvas.addEventListener('mousedown', onMouseDown)
-  canvas.addEventListener('mouseup', onMouseUp)
+  canvas.addEventListener('mousedown', startPainting)
+  canvas.addEventListener('mouseup', stopPainting)
   canvas.addEventListener('mouseleave', stopPainting)
 }
