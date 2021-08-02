@@ -14,6 +14,7 @@ body {
   width: 500px;
   height: 500px;
   background-color: white;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.349);
 }
 
 button {
@@ -27,10 +28,12 @@ button {
 button:active {
   transform: scale(.98);
 }
-.control__size {
+
+.control__size .range {
+  display: block;
   margin-top: 1rem;
-  width: 500px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 .control__btn {
   display: flex;
