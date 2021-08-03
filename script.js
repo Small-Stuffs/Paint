@@ -1,6 +1,7 @@
 const canvas = document.querySelector('#canvas')
 const ctx = canvas.getContext('2d')
 const colors = document.querySelectorAll('.colors')
+const size = document.querySelector('.range')
 
 // canvas Size
 canvas.width = 500;
@@ -45,6 +46,15 @@ function changeColor(e) {
 
 function onMouseUp(e) {
   stopPainting()
+}
+function changeBrushSize(e) {
+  console.log(e.target.value)
+  const brushSize = e.target.value
+  ctx.lineWidth = brushSize
+}
+
+if(size) {
+  size.addEventListener('input', changeBrushSize)
 }
 
 if(canvas) {
