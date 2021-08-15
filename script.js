@@ -10,7 +10,7 @@ canvas.height = 500;
 ctx.strokeStyle = 'black'
 ctx.fillStyle = 'black'
 ctx.lineWidth = '2.5'
-
+ctx.fill
 let painting = false
 let filling = false
 
